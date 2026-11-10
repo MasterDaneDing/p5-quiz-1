@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Super Chips";
+  src: url("/fonts/super-chips.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "KG Primary Penmanship";
+  src: url("/fonts/kg-primary-penmanship.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Wanted";
+  src: url("/fonts/wanted.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-ink: #2a0845;
+  --color-purple: #5b18c9;
+  --color-purple-deep: #3a0d86;
+  --color-orange: #ff6a00;
+  --color-magenta: #ff2ea6;
+  --color-neon: #e8ff3d;
+  --color-cream: #fff8f2;
+  --font-display: "Super Chips", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "KG Perfect Penmanship", "Comic Sans MS", ui-sans-serif, system-ui, sans-serif;
+  --font-poster: "Super Chips", ui-sans-serif, system-ui, sans-serif;
+  --font-wanted: "Wanted", "Super Chips", ui-sans-serif, system-ui, sans-serif;
+  --font-penmanship: "KG Primary Penmanship", "KG Perfect Penmanship", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html {
+    background-color: var(--color-purple-deep);
+    background-image: url("/pattern.jpg");
+    background-repeat: repeat;
+    background-size: 340px 340px;
+    color: var(--color-cream);
+    font-synthesis: none;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    min-height: 100%;
+    line-height: 1.45;
+    background: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
