@@ -1,4 +1,5 @@
 import type { Shape } from "@/data/lovely-quiz";
+import { loadQuizFonts } from "@/lib/quiz-fonts";
 
 export const POSTER_W = 1200;
 export const POSTER_H = 800;
@@ -64,6 +65,7 @@ export async function renderPoster(options: {
     cover(ctx, img, img.naturalWidth, img.naturalHeight, POSTER_W, POSTER_H);
   }
   paintShapes(ctx, options.shapes, POSTER_W, POSTER_H);
+  await loadQuizFonts();
   const band = 150;
   ctx.fillStyle = "rgba(255,248,242,0.94)";
   ctx.fillRect(0, POSTER_H - band, POSTER_W, band);

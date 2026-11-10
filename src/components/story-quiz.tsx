@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Minus, RotateCcw } from "lucide-react";
 import { stories, type StoryId } from "@/data/stories";
 import { LovelyQuiz } from "@/components/lovely-quiz";
 import { OfficerQuiz } from "@/components/officer-quiz";
+import { loadQuizFonts } from "@/lib/quiz-fonts";
 
 const order: StoryId[] = ["lovely", "robo"];
 
@@ -23,6 +24,10 @@ export function StoryQuiz() {
   const page = storyId ? pages[storyId] : 0;
   const current = story?.pages[page];
   const expanded = story !== null && !minimized;
+
+  useEffect(() => {
+    void loadQuizFonts();
+  }, []);
 
   function openStory(id: StoryId) {
     setStoryId(id);

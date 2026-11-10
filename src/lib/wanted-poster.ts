@@ -1,4 +1,5 @@
 import { paintShapes } from "@/lib/poster";
+import { loadQuizFonts } from "@/lib/quiz-fonts";
 import type { Shape } from "@/data/lovely-quiz";
 
 const W = 900;
@@ -52,6 +53,7 @@ export async function renderWanted(options: {
   canvas.height = H;
   const ctx = canvas.getContext("2d");
   if (!ctx) return "";
+  await loadQuizFonts();
   ctx.fillStyle = "#f3e2c4";
   ctx.fillRect(0, 0, W, H);
   ctx.strokeStyle = "#2a1a0c";

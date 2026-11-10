@@ -1,4 +1,5 @@
 import { jsPDF } from "jspdf";
+import { loadQuizFonts } from "@/lib/quiz-fonts";
 
 const PX = 5;
 const BOTTOM = 288;
@@ -27,6 +28,7 @@ function makeSheet(): Sheet {
 }
 
 export async function preparePaper(): Promise<Paper> {
+  await loadQuizFonts();
   await document.fonts.load("64px 'KG Primary Penmanship'");
   await document.fonts.ready;
   const page = makeSheet();
